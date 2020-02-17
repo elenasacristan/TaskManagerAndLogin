@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- personal styles -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+
+    <title>Task Manager</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="{{url_for('get_tasks')}}" class=" brand-logo">My tasks</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+
+                <li><a href="{{url_for('login')}}">Login</a></li>
+                <li><a href="{{url_for('register')}}">Register</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="{{url_for('login')}}">Login</a></li>
+        <li><a href="{{url_for('register')}}">Register</a></li>
+    </ul>
+
+    <!-- <div class="container"> -->
+
+    {% block content %}
+    {% endblock %}
+    <!-- </div> -->
+    <!-- jQuery link -->
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $('.collapsible').collapsible();
+            $('.datepicker').datepicker();
+            $('select').formSelect();
+        });
+    </script>
+
+</body>
+
+</html>
